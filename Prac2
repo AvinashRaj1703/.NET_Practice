@@ -1,0 +1,60 @@
+using System;
+
+interface IPayroll
+{
+    void CalculateSalary();
+}
+
+class Employee
+{
+    public string Name;
+
+    public Employee(string name)
+    {
+        Name = name;
+    }
+}
+
+class FullTimeEmployee : Employee, IPayroll
+{
+    int Salary;
+
+    public FullTimeEmployee(string name, int salary) : base(name)
+    {
+        Salary = salary;
+    }
+
+    public void CalculateSalary()
+    {
+        Console.WriteLine(Name + " Salary: " + Salary);
+    }
+}
+
+class PartTimeEmployee : Employee, IPayroll
+{
+    int Hours;
+    int Rate;
+
+    public PartTimeEmployee(string name, int hours, int rate) : base(name)
+    {
+        Hours = hours;
+        Rate = rate;
+    }
+
+    public void CalculateSalary()
+    {
+        Console.WriteLine(Name + " Salary: " + (Hours * Rate));
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        IPayroll e1 = new FullTimeEmployee("Avinash", 50000);
+        IPayroll e2 = new PartTimeEmployee("Sushmita", 20, 500);
+
+        e1.CalculateSalary();
+        e2.CalculateSalary();
+    }
+}
