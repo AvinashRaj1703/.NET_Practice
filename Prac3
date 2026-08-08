@@ -1,0 +1,39 @@
+// AIM: Develop Expense Tracking Module with Exception Handling
+
+using System;
+class ExceptionHandling : Exception
+{
+public ExceptionHandling()
+{
+Console.WriteLine("Please enter a valid amount.
+");
+}
+}
+class ExpenseTracker
+{
+static void Main()
+{
+try
+{
+Console.Write("Enter the category of expense: ");
+string category = Console.ReadLine()!;
+Console.Write("Enter the amount of expense: ");
+float amount = float.Parse(Console.ReadLine()!);
+if (amount <= 0)
+{
+throw new ExceptionHandling();
+}
+Console.WriteLine("Expense Added Successfully!");
+Console.WriteLine("Category: " + category);
+Console.WriteLine("Amount: " + amount);
+catch (FormatException)
+}
+{
+Console.WriteLine("Please enter a numeric value.
+");
+catch (ExceptionHandling)
+}
+{
+}
+}
+}
