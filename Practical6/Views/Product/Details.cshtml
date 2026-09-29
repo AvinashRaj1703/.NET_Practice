@@ -1,0 +1,22 @@
+@model ProductCatalog.Models.Product
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<img src="@Model.Image" width="100" />
+<br />
+<br />
+
+<b>Name:</b> @Model.Name
+<br />
+<b>Category:</b> @Model.Category
+<br />
+<b>Description:</b> @Model.Description
+<br />
+<b>Price:</b> @Model.Price
+<br />
+<b>Quantity:</b> @Model.Quantity
+<br />
+<br />
+
+@Html.ActionLink("Back to List", "Index")
