@@ -1,0 +1,36 @@
+﻿@model WebApplication7.Models.Feedback
+
+<p>
+    @Html.LabelFor(x => x.Name)
+    <br />
+
+    @Html.TextBoxFor(x => x.Name)
+
+    <br />
+
+    @Html.ValidationMessageFor(x => x.Name)
+</p>
+
+<p>
+    @Html.LabelFor(x => x.Email)
+    <br />
+
+    @Html.TextBoxFor(x => x.Email)
+
+    <br />
+
+    @Html.ValidationMessageFor(x => x.Email)
+</p>
+
+<p>
+    @Html.LabelFor(x => x.Message)
+    <br />
+
+    @Html.TextAreaFor(x => x.Message)
+
+    <br />
+
+    @Html.ValidationMessageFor(x => x.Message)
+</p>
+
+<input type="submit" value="Submit Feedback" />

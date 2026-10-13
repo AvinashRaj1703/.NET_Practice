@@ -1,0 +1,19 @@
+﻿@model WebApplication7.Models.Feedback
+
+@{
+    ViewBag.Title = "Feedback";
+}
+
+<h2>Feedback Management</h2>
+
+@using (Html.BeginForm("Submit", "Feedback", FormMethod.Post))
+{
+    @Html.Partial("_FeedbackForm", Model)
+}
+
+@if (ViewBag.Message != null)
+{
+    <h3 style="color:green;">
+        @ViewBag.Message
+    </h3>
+}

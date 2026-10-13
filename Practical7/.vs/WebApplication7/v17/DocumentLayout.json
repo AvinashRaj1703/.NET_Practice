@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\student\\source\\repos\\WebApplication7\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|c:\\users\\student\\source\\repos\\webapplication7\\views\\feedback\\viewfeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|solutionrelative:views\\feedback\\viewfeedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|c:\\users\\student\\source\\repos\\webapplication7\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|solutionrelative:controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|c:\\users\\student\\source\\repos\\webapplication7\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|c:\\users\\student\\source\\repos\\webapplication7\\views\\feedback\\_feedbackform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|solutionrelative:views\\feedback\\_feedbackform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|c:\\users\\student\\source\\repos\\webapplication7\\views\\feedback\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|solutionrelative:views\\feedback\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|c:\\users\\student\\source\\repos\\webapplication7\\models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|solutionrelative:models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|c:\\users\\student\\source\\repos\\webapplication7\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|solutionrelative:global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|c:\\users\\student\\source\\repos\\webapplication7\\views\\feedback\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12396CE7-E893-4DE3-9C00-EE3A85928A0C}|WebApplication7.csproj|solutionrelative:views\\feedback\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ViewFeedback.cshtml",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\feedback\\ViewFeedback.cshtml",
+              "RelativeDocumentMoniker": "Views\\feedback\\ViewFeedback.cshtml",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\feedback\\ViewFeedback.cshtml",
+              "RelativeToolTip": "Views\\feedback\\ViewFeedback.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-30T03:17:10.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "feedbackController.cs",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\WebApplication7\\Controllers\\feedbackController.cs",
+              "RelativeDocumentMoniker": "Controllers\\feedbackController.cs",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\WebApplication7\\Controllers\\feedbackController.cs",
+              "RelativeToolTip": "Controllers\\feedbackController.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAmwCQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T02:41:02.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "feedback.cs",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\WebApplication7\\Models\\feedback.cs",
+              "RelativeDocumentMoniker": "Models\\feedback.cs",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\WebApplication7\\Models\\feedback.cs",
+              "RelativeToolTip": "Models\\feedback.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T02:40:00.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-30T02:50:13.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_FeedbackForm.cshtml",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\feedback\\_FeedbackForm.cshtml",
+              "RelativeDocumentMoniker": "Views\\feedback\\_FeedbackForm.cshtml",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\feedback\\_FeedbackForm.cshtml",
+              "RelativeToolTip": "Views\\feedback\\_FeedbackForm.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCMAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-30T02:52:25.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\feedback\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\feedback\\Index.cshtml",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\feedback\\Index.cshtml",
+              "RelativeToolTip": "Views\\feedback\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-30T02:51:29.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\WebApplication7\\Global.asax.cs",
+              "RelativeDocumentMoniker": "Global.asax.cs",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\WebApplication7\\Global.asax.cs",
+              "RelativeToolTip": "Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T02:54:46.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\feedback\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\feedback\\Create.cshtml",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\WebApplication7\\Views\\feedback\\Create.cshtml",
+              "RelativeToolTip": "Views\\feedback\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-30T02:45:47.134Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

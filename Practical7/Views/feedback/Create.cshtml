@@ -1,0 +1,17 @@
+﻿@model FeedbackManagement.Models.Feedback
+
+@{
+    ViewData["Title"] = "Give Feedback";
+}
+
+<h2>Give Your Feedback</h2>
+
+<form asp-action="Create" method="post">
+
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger">
+    </div>
+
+    @await Html.PartialAsync("_FeedbackForm", Model)
+
+</form>
