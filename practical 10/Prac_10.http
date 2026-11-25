@@ -1,0 +1,39 @@
+@Prac_10_HostAddress = http://localhost:5001
+
+### 1. Get all students
+GET {{Prac_10_HostAddress}}/api/students
+Accept: application/json
+
+### 2. Get student by ID
+GET {{Prac_10_HostAddress}}/api/students/1
+Accept: application/json
+
+### 3. Add a new student
+POST {{Prac_10_HostAddress}}/api/students
+Content-Type: application/json
+
+{
+  "name": "Manish Sharma",
+  "email": "manish.sharma@gmail.com",
+  "course": "Computer Engineering",
+  "age": 21
+}
+
+### 4. Update an existing student
+PUT {{Prac_10_HostAddress}}/api/students/1
+Content-Type: application/json
+
+{
+  "name": "Aarav Sharma",
+  "email": "aarav.sharma@gmail.com",
+  "course": "Computer Engineering",
+  "age": 22
+}
+
+### 5. Delete a student
+DELETE {{Prac_10_HostAddress}}/api/students/4
+Accept: application/json
+
+### 6. Weather Forecast (Template endpoint)
+GET {{Prac_10_HostAddress}}/weatherforecast/
+Accept: application/json
