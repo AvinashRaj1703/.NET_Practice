@@ -1,0 +1,150 @@
+@model IEnumerable<SmartCampusPortal.Models.ServiceRequest>
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <div>
+        <h2 class="h3 fw-bold mb-1">Admin Dashboard</h2>
+        <p class="text-muted mb-0 small">Overview of student requests and service statuses.</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a asp-controller="CampusServices" asp-action="Index" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-grid"></i> Services
+        </a>
+        <a asp-controller="ServiceRequests" asp-action="Index" class="btn btn-primary btn-sm">
+            <i class="bi bi-list-check"></i> Manage All Requests
+        </a>
+    </div>
+</div>
+
+<!-- Key Metrics Row -->
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="stat-box">
+            <div class="text-muted small text-uppercase fw-semibold">Total Students</div>
+            <h3 class="fw-bold text-primary mb-0 mt-1">@ViewBag.TotalStudents</h3>
+            <small class="text-muted">Registered in portal</small>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-box success">
+            <div class="text-muted small text-uppercase fw-semibold">Campus Services</div>
+            <h3 class="fw-bold text-success mb-0 mt-1">@ViewBag.TotalServices</h3>
+            <small class="text-muted">Active categories</small>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-box info">
+            <div class="text-muted small text-uppercase fw-semibold">Total Requests</div>
+            <h3 class="fw-bold text-info mb-0 mt-1">@ViewBag.TotalRequests</h3>
+            <small class="text-muted">Total logged requests</small>
+        </div>
+    </div>
+</div>
+
+<!-- Status Summary Cards -->
+<div class="card mb-4">
+    <div class="card-header bg-light fw-bold">
+        <i class="bi bi-bar-chart-fill text-primary me-1"></i> Request Status Summary
+    </div>
+    <div class="card-body">
+        <div class="row g-3 text-center">
+            <div class="col-md-4">
+                <div class="p-3 bg-light rounded border">
+                    <span class="badge bg-warning text-dark mb-1">Pending</span>
+                    <h4 class="fw-bold text-warning mb-0">@ViewBag.PendingRequests</h4>
+                    <small class="text-muted">Awaiting action</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-light rounded border">
+                    <span class="badge bg-info text-dark mb-1">In Progress</span>
+                    <h4 class="fw-bold text-info mb-0">@ViewBag.InProgressRequests</h4>
+                    <small class="text-muted">Being resolved</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-light rounded border">
+                    <span class="badge bg-success mb-1">Completed</span>
+                    <h4 class="fw-bold text-success mb-0">@ViewBag.CompletedRequests</h4>
+                    <small class="text-muted">Successfully closed</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Requests Table -->
+<div class="card shadow-sm">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <span class="fw-bold text-dark">
+            <i class="bi bi-clock-history me-1"></i> Recent Service Requests
+        </span>
+        <a asp-controller="ServiceRequests" asp-action="Index" class="btn btn-outline-primary btn-sm">
+            View All Requests &rarr;
+        </a>
+    </div>
+
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th style="width: 70px;">ID</th>
+                        <th>Student</th>
+                        <th>Service</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var request in Model)
+                    {
+                        <tr>
+                            <td class="fw-bold text-muted">#@request.RequestId</td>
+                            <td>
+                                <strong>@request.Student?.FullName</strong>
+                                <div class="text-muted small">@request.Student?.EnrollmentNumber</div>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark border">
+                                    @request.CampusService?.ServiceName
+                                </span>
+                            </td>
+                            <td>@request.Title</td>
+                            <td class="text-muted small">@request.CreatedAt.ToLocalTime().ToString("dd MMM yyyy")</td>
+                            <td>
+                                @if (request.Status == "Completed")
+                                {
+                                    <span class="badge bg-success">Completed</span>
+                                }
+                                else if (request.Status == "In Progress")
+                                {
+                                    <span class="badge bg-info text-dark">In Progress</span>
+                                }
+                                else if (request.Status == "Rejected")
+                                {
+                                    <span class="badge bg-danger">Rejected</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">Pending</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (!Model.Any())
+        {
+            <div class="p-4 text-center text-muted">
+                No requests submitted yet.
+            </div>
+        }
+    </div>
+</div>

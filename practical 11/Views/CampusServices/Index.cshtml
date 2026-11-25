@@ -1,0 +1,80 @@
+@model IEnumerable<SmartCampusPortal.Models.CampusService>
+
+@{
+    ViewData["Title"] = "Campus Services";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <div>
+        <h2 class="h3 fw-bold mb-1">Campus Services Directory</h2>
+        <p class="text-muted mb-0 small">Select a service to file a new complaint or support request.</p>
+    </div>
+
+    <div class="d-flex gap-2">
+        <a asp-controller="ServiceRequests" asp-action="MyRequests" class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-clock-history"></i> Track My Requests
+        </a>
+        <a asp-controller="ServiceRequests" asp-action="Index" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-list-check"></i> View All Requests
+        </a>
+    </div>
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show py-2" role="alert">
+        <i class="bi bi-check-circle me-1"></i> @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="row g-3">
+    @foreach (var service in Model)
+    {
+        string badgeClass = service.Category switch
+        {
+            "Technical" => "bg-primary",
+            "Academic" => "bg-success",
+            "Hostel" => "bg-warning text-dark",
+            "Transport" => "bg-info text-dark",
+            "Administration" => "bg-secondary",
+            "Sports" => "bg-danger",
+            _ => "bg-dark"
+        };
+
+        string icon = service.Category switch
+        {
+            "Technical" => "bi-laptop",
+            "Academic" => "bi-book",
+            "Hostel" => "bi-house",
+            "Transport" => "bi-bus-front",
+            "Administration" => "bi-file-earmark-person",
+            "Sports" => "bi-trophy",
+            _ => "bi-gear"
+        };
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header d-flex justify-content-between align-items-center bg-white">
+                    <span class="fw-bold text-dark">
+                        <i class="bi @icon text-primary me-1"></i> @service.ServiceName
+                    </span>
+                    <span class="badge @badgeClass">@service.Category</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <p class="card-text text-muted small flex-grow-1">
+                        @service.Description
+                    </p>
+                    <div class="pt-2 border-top text-end">
+                        <a asp-controller="ServiceRequests"
+                           asp-action="Create"
+                           asp-route-serviceId="@service.ServiceId"
+                           class="btn btn-primary btn-sm">
+                            <i class="bi bi-pencil-square"></i> Request Service
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

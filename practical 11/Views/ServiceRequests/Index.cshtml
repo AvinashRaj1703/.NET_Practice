@@ -1,0 +1,102 @@
+@model IEnumerable<SmartCampusPortal.Models.ServiceRequest>
+
+@{
+    ViewData["Title"] = "Manage Requests";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <div>
+        <h2 class="h3 fw-bold mb-1">Manage Service Requests</h2>
+        <p class="text-muted mb-0 small">Update status or edit service requests submitted by students.</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a asp-controller="CampusServices" asp-action="Index" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-grid"></i> Services
+        </a>
+        <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-speedometer2"></i> Admin Dashboard
+        </a>
+    </div>
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show py-2" role="alert">
+        <i class="bi bi-check-circle me-1"></i> @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="card shadow-sm">
+    <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="bi bi-table me-1"></i> Requests List (@Model.Count())</span>
+        <span class="badge bg-secondary">Total: @Model.Count()</span>
+    </div>
+
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th style="width: 60px;">ID</th>
+                        <th>Student</th>
+                        <th>Service</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th style="min-width: 200px;">Change Status</th>
+                        <th style="width: 140px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var request in Model)
+                    {
+                        <tr>
+                            <td class="fw-bold text-muted">#@request.RequestId</td>
+                            <td>
+                                <strong>@request.Student?.FullName</strong>
+                                <div class="text-muted small">@request.Student?.EnrollmentNumber</div>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark border">
+                                    @request.CampusService?.ServiceName
+                                </span>
+                            </td>
+                            <td>@request.Title</td>
+                            <td class="text-muted small">@request.CreatedAt.ToLocalTime().ToString("dd MMM yyyy")</td>
+                            <td>
+                                <form asp-action="UpdateStatus" asp-route-id="@request.RequestId" method="post" class="d-flex gap-1">
+                                    <select name="status" class="form-select form-select-sm">
+                                        <option value="Pending" selected="@(request.Status == "Pending")">Pending</option>
+                                        <option value="In Progress" selected="@(request.Status == "In Progress")">In Progress</option>
+                                        <option value="Completed" selected="@(request.Status == "Completed")">Completed</option>
+                                        <option value="Rejected" selected="@(request.Status == "Rejected")">Rejected</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-sm btn-success px-2" title="Save Status">
+                                        Save
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <div class="d-flex gap-1">
+                                    <a asp-action="Edit" asp-route-id="@request.RequestId" class="btn btn-sm btn-outline-primary" title="Edit">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@request.RequestId" class="btn btn-sm btn-outline-danger" title="Delete">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (!Model.Any())
+        {
+            <div class="p-4 text-center text-muted">
+                No service requests found.
+            </div>
+        }
+    </div>
+</div>

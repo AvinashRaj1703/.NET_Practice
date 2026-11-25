@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Welcome Header Box -->
+<div class="welcome-box">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+            <h2 class="h3 fw-bold mb-1 text-primary">Smart Campus Service Portal</h2>
+            <p class="text-muted mb-0">
+                A centralized portal for university students to request campus services, track issue resolution, and manage department utilities.
+            </p>
+        </div>
+        <div>
+            <a asp-controller="CampusServices" asp-action="Index" class="btn btn-primary">
+                <i class="bi bi-grid-fill me-1"></i> Browse Services
+            </a>
+            <a asp-controller="ServiceRequests" asp-action="MyRequests" class="btn btn-outline-secondary">
+                <i class="bi bi-search me-1"></i> Track My Requests
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Project Modules / Quick Links -->
+<div class="row g-3 mb-4">
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="text-primary mb-2">
+                    <i class="bi bi-gear-fill fs-2"></i>
+                </div>
+                <h5 class="card-title fw-bold">Campus Services</h5>
+                <p class="card-text text-muted small">
+                    Explore available services such as IT support, Library queries, Hostel maintenance, and Transport.
+                </p>
+                <a asp-controller="CampusServices" asp-action="Index" class="btn btn-sm btn-outline-primary">
+                    View Catalog &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="text-success mb-2">
+                    <i class="bi bi-clock-history fs-2"></i>
+                </div>
+                <h5 class="card-title fw-bold">Track Status</h5>
+                <p class="card-text text-muted small">
+                    Select your student name to see your previous requests and their current resolution status.
+                </p>
+                <a asp-controller="ServiceRequests" asp-action="MyRequests" class="btn btn-sm btn-outline-success">
+                    Track Requests &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="text-info mb-2">
+                    <i class="bi bi-person-plus-fill fs-2"></i>
+                </div>
+                <h5 class="card-title fw-bold">Student Register</h5>
+                <p class="card-text text-muted small">
+                    New student? Register your details (Enrollment No, Email, Department) into the portal database.
+                </p>
+                <a asp-controller="Students" asp-action="Register" class="btn btn-sm btn-outline-info">
+                    Register Now &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="text-danger mb-2">
+                    <i class="bi bi-speedometer2 fs-2"></i>
+                </div>
+                <h5 class="card-title fw-bold">Admin Portal</h5>
+                <p class="card-text text-muted small">
+                    View request counts, summary statistics, and manage incoming campus service tickets.
+                </p>
+                <a asp-controller="Admin" asp-action="Index" class="btn btn-sm btn-outline-danger">
+                    Admin Panel &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Simple Project Info Card (Ideal for Student Practical) -->
+<div class="card">
+    <div class="card-header bg-light">
+        <i class="bi bi-info-circle-fill text-primary me-1"></i> About This Practical Project
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-8">
+                <p class="mb-2">
+                    This project is developed as an <strong>ASP.NET Core MVC</strong> web application to demonstrate database connectivity, CRUD operations, entity relationships, and MVC architecture.
+                </p>
+                <ul class="text-muted small mb-0">
+                    <li><strong>Architecture:</strong> Model-View-Controller (MVC) Pattern</li>
+                    <li><strong>ORM & Database:</strong> Entity Framework Core with SQLite (<code>SmartCampus.db</code>)</li>
+                    <li><strong>Key Features:</strong> Service Catalog, Ticket Submission, Status Workflow (Pending &rarr; In Progress &rarr; Completed), and Admin Dashboard.</li>
+                </ul>
+            </div>
+            <div class="col-md-4 border-start-md pt-3 pt-md-0">
+                <div class="bg-light p-3 rounded">
+                    <div class="small fw-bold text-muted mb-2">QUICK LINKS</div>
+                    <div class="d-flex flex-column gap-1 small">
+                        <a asp-controller="CampusServices" asp-action="Index">&bull; View All Services</a>
+                        <a asp-controller="ServiceRequests" asp-action="Index">&bull; Manage All Service Requests</a>
+                        <a asp-controller="Students" asp-action="Register">&bull; Add New Student</a>
+                        <a href="/swagger" target="_blank">&bull; REST API Documentation (Swagger)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

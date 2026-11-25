@@ -1,0 +1,60 @@
+@model SmartCampusPortal.Models.Student
+
+@{
+    ViewData["Title"] = "Student Registration";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0 fw-bold">
+                    <i class="bi bi-person-plus-fill me-1"></i> Student Registration
+                </h5>
+            </div>
+
+            <div class="card-body">
+                <form asp-action="Register" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-2 small"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="FullName" class="form-label">Full Name: <span class="text-danger">*</span></label>
+                        <input asp-for="FullName" class="form-control" placeholder="Enter student full name" />
+                        <span asp-validation-for="FullName" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">Email Address: <span class="text-danger">*</span></label>
+                        <input asp-for="Email" class="form-control" type="email" placeholder="student@college.edu" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="EnrollmentNumber" class="form-label">Enrollment Number: <span class="text-danger">*</span></label>
+                        <input asp-for="EnrollmentNumber" class="form-control" placeholder="e.g. 21BCE045" />
+                        <span asp-validation-for="EnrollmentNumber" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Department" class="form-label">Department: <span class="text-danger">*</span></label>
+                        <input asp-for="Department" class="form-control" placeholder="e.g. Computer Engineering" />
+                        <span asp-validation-for="Department" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check2"></i> Register Student
+                        </button>
+                        <a asp-controller="CampusServices" asp-action="Index" class="btn btn-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

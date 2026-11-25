@@ -1,0 +1,102 @@
+@model IEnumerable<SmartCampusPortal.Models.ServiceRequest>
+
+@{
+    ViewData["Title"] = "Track Requests";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <div>
+        <h2 class="h3 fw-bold mb-1">Track Student Requests</h2>
+        <p class="text-muted mb-0 small">Select a registered student name below to filter and view their requests.</p>
+    </div>
+    <a asp-controller="CampusServices" asp-action="Index" class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-arrow-left"></i> Back to Services
+    </a>
+</div>
+
+<!-- Student Selector Card -->
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+        <form asp-controller="ServiceRequests" asp-action="MyRequests" method="get">
+            <div class="row align-items-end g-2">
+                <div class="col-md-9">
+                    <label class="form-label fw-bold">Select Student Name:</label>
+                    <select name="studentId" asp-items="ViewBag.Students" class="form-select">
+                        <option value="">-- Choose student from directory --</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-search"></i> Search Requests
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Requests Table -->
+@if (Model != null && Model.Any())
+{
+    <div class="card shadow-sm">
+        <div class="card-header bg-white fw-bold">
+            <i class="bi bi-journal-text text-primary me-1"></i> Submitted Requests (@Model.Count())
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 70px;">ID</th>
+                            <th>Campus Service</th>
+                            <th>Request Title</th>
+                            <th>Description</th>
+                            <th>Submitted Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var request in Model)
+                        {
+                            <tr>
+                                <td class="fw-bold text-muted">#@request.RequestId</td>
+                                <td>
+                                    <span class="badge bg-light text-dark border">
+                                        @request.CampusService?.ServiceName
+                                    </span>
+                                </td>
+                                <td><strong>@request.Title</strong></td>
+                                <td class="text-muted small">@request.Description</td>
+                                <td class="text-muted small">@request.CreatedAt.ToLocalTime().ToString("dd MMM yyyy, hh:mm tt")</td>
+                                <td>
+                                    @if (request.Status == "Completed")
+                                    {
+                                        <span class="badge bg-success">Completed</span>
+                                    }
+                                    else if (request.Status == "In Progress")
+                                    {
+                                        <span class="badge bg-info text-dark">In Progress</span>
+                                    }
+                                    else if (request.Status == "Rejected")
+                                    {
+                                        <span class="badge bg-danger">Rejected</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-warning text-dark">Pending</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-info py-3">
+        <i class="bi bi-info-circle me-1"></i> Please select a student name from the dropdown above to view submitted requests.
+    </div>
+}
