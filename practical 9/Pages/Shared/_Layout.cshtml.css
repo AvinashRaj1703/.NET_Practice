@@ -1,0 +1,9 @@
+/* Layout Scoped Styles */
+a.navbar-brand {
+  white-space: normal;
+  word-break: normal;
+}
+
+.footer {
+  width: 100%;
+}

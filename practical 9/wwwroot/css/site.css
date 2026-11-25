@@ -1,0 +1,145 @@
+/* Student Project Clean Theme */
+body {
+    background-color: #f8f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #212529;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Navbar */
+.navbar-custom {
+    background-color: #0d47a1; /* Classic College Navy Blue */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+/* Page Header */
+.page-header-box {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+/* Simple Student Stat Cards */
+.stat-box {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 18px 20px;
+    height: 100%;
+}
+
+.stat-box.border-blue {
+    border-left: 5px solid #0d6efd;
+}
+
+.stat-box.border-green {
+    border-left: 5px solid #198754;
+}
+
+.stat-box.border-amber {
+    border-left: 5px solid #ffc107;
+}
+
+.stat-box.border-purple {
+    border-left: 5px solid #6f42c1;
+}
+
+.stat-box .stat-label {
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.stat-box .stat-count {
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: #212529;
+    margin-bottom: 0;
+}
+
+/* Content Cards */
+.content-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.content-card-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #0d47a1;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Tables */
+.table thead {
+    background-color: #f1f3f5;
+    color: #495057;
+}
+
+.table th {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.table td {
+    font-size: 0.92rem;
+    vertical-align: middle;
+}
+
+/* Footer */
+.footer-custom {
+    background-color: #ffffff;
+    border-top: 1px solid #dee2e6;
+    padding: 16px 0;
+    margin-top: 40px;
+    font-size: 0.88rem;
+    color: #6c757d;
+}
+
+/* Report Styles */
+.report-paper {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 30px;
+}
+
+.report-title-header {
+    text-align: center;
+    border-bottom: 2px solid #0d47a1;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+@media print {
+    body {
+        background-color: #ffffff !important;
+    }
+    .navbar-custom, .footer-custom, .no-print {
+        display: none !important;
+    }
+    .report-paper {
+        border: none !important;
+        padding: 0 !important;
+    }
+}

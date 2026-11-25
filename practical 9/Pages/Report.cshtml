@@ -1,0 +1,136 @@
+@page
+@model ReportModel
+@{
+    ViewData["Title"] = "Placement Report";
+}
+
+<div class="no-print d-flex justify-content-between align-items-center mb-3">
+    <a href="/" class="btn btn-outline-secondary">
+        &larr; Back to Dashboard
+    </a>
+    <button onclick="window.print()" class="btn btn-primary">
+        Print Report
+    </button>
+</div>
+
+<div class="report-paper">
+
+    <!-- Report Header -->
+    <div class="report-title-header">
+        <h3 class="fw-bold mb-1">CAMPUS PLACEMENT REPORT</h3>
+        <h6 class="text-muted mb-1">Placement Management System &bull; Practical 9</h6>
+        <small class="text-muted">Academic Year 2025&ndash;2026 &bull; Report Date: @DateTime.Now.ToString("dd-MM-yyyy")</small>
+    </div>
+
+    <!-- Summary Statistics -->
+    <h5 class="fw-bold text-primary mb-2">1. Placement Summary</h5>
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded text-center bg-light">
+                <div class="text-muted small">Total Students</div>
+                <h4 class="fw-bold mb-0 text-primary">@Model.TotalStudents</h4>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded text-center bg-light">
+                <div class="text-muted small">Placed Students</div>
+                <h4 class="fw-bold mb-0 text-success">@Model.PlacedStudents</h4>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded text-center bg-light">
+                <div class="text-muted small">Not Placed</div>
+                <h4 class="fw-bold mb-0 text-warning">@Model.NotPlacedStudents</h4>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded text-center bg-light">
+                <div class="text-muted small">Placement Percentage</div>
+                <h4 class="fw-bold mb-0" style="color: #6f42c1;">@Model.PlacementPercentage.ToString("0.00")%</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Records Table -->
+    <h5 class="fw-bold text-primary mb-2">2. Student Placement Details</h5>
+    <div class="table-responsive mb-4">
+        <table class="table table-bordered table-sm align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th style="width: 50px;">ID</th>
+                    <th>Student Name</th>
+                    <th>Department</th>
+                    <th style="width: 60px;">CGPA</th>
+                    <th>Company</th>
+                    <th>Job Role</th>
+                    <th>Package (LPA)</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.StudentRecords)
+                {
+                    <tr>
+                        <td class="text-center">@student.StudentID</td>
+                        <td>@student.StudentName</td>
+                        <td>@student.Department</td>
+                        <td>@student.CGPA.ToString("0.00")</td>
+                        <td>@(student.CompanyName ?? "-")</td>
+                        <td>@(student.JobRole ?? "-")</td>
+                        <td>
+                            @(student.Package.HasValue ? (student.Package.Value / 100000.0).ToString("0.00") + " LPA" : "-")
+                        </td>
+                        <td>
+                            @(student.PlacementDate.HasValue ? student.PlacementDate.Value.ToString("dd-MM-yyyy") : "-")
+                        </td>
+                        <td>
+                            @if (student.CompanyName != null)
+                            {
+                                <span class="badge bg-success">Placed</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Not Placed</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Company Table -->
+    <h5 class="fw-bold text-primary mb-2">3. Participating Recruiters</h5>
+    <div class="table-responsive mb-4">
+        <table class="table table-bordered table-sm align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th style="width: 90px;">Company ID</th>
+                    <th>Company Name</th>
+                    <th>Job Role</th>
+                    <th>Annual Package</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var comp in Model.CompanyRecords)
+                {
+                    <tr>
+                        <td class="text-center">@comp.CompanyID</td>
+                        <td>@comp.CompanyName</td>
+                        <td>@comp.JobRole</td>
+                        <td>₹@comp.Package.ToString("N0")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center text-muted border-top pt-3 mt-4">
+        <small>--- End of Placement Report ---</small>
+    </div>
+
+</div>

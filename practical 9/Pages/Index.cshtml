@@ -1,0 +1,175 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Student Placement Dashboard";
+}
+
+<!-- Page Header -->
+<div class="page-header-box d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div>
+        <h4 class="mb-1 text-primary fw-bold">Student Placement Dashboard</h4>
+        <p class="text-muted mb-0">Practical 9 &bull; Placement Management System &bull; Batch 2026</p>
+    </div>
+    <div>
+        <a href="/Report" class="btn btn-primary">
+            View Placement Report
+        </a>
+    </div>
+</div>
+
+<!-- Simple Stat Cards -->
+<div class="row g-3">
+    <div class="col-6 col-md-3">
+        <div class="stat-box border-blue">
+            <div class="stat-label">Total Students</div>
+            <div class="stat-count text-primary">@Model.TotalStudents</div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <div class="stat-box border-green">
+            <div class="stat-label">Placed Students</div>
+            <div class="stat-count text-success">@Model.PlacedStudents</div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <div class="stat-box border-amber">
+            <div class="stat-label">Not Placed</div>
+            <div class="stat-count text-warning">@Model.NotPlacedStudents</div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <div class="stat-box border-purple">
+            <div class="stat-label">Placement %</div>
+            <div class="stat-count" style="color: #6f42c1;">@Model.PlacementPercentage.ToString("0.0")%</div>
+        </div>
+    </div>
+</div>
+
+<!-- Student Details Card -->
+<div class="content-card">
+    <div class="content-card-title d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <span>Student Placement Records</span>
+        <small class="text-muted fw-normal">Total Records: @Model.StudentRecords.Count</small>
+    </div>
+
+    <!-- Filter Form -->
+    <form method="get" class="row g-2 mb-3 bg-light p-3 border rounded">
+        <div class="col-md-4">
+            <input type="text"
+                   name="searchTerm"
+                   value="@Model.SearchTerm"
+                   class="form-control"
+                   placeholder="Search by name or email..." />
+        </div>
+
+        <div class="col-md-3">
+            <select name="selectedDepartment" class="form-select">
+                <option value="">-- All Departments --</option>
+                @foreach (var dept in Model.Departments)
+                {
+                    <option value="@dept" selected="@(Model.SelectedDepartment == dept)">
+                        @dept
+                    </option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <select name="placementStatus" class="form-select">
+                <option value="All" selected="@(Model.PlacementStatus == "All")">All Students</option>
+                <option value="Placed" selected="@(Model.PlacementStatus == "Placed")">Placed Only</option>
+                <option value="NotPlaced" selected="@(Model.PlacementStatus == "NotPlaced")">Not Placed Only</option>
+            </select>
+        </div>
+
+        <div class="col-md-2 d-flex gap-2">
+            <button type="submit" class="btn btn-primary w-100">Filter</button>
+            <a href="/" class="btn btn-outline-secondary">Reset</a>
+        </div>
+    </form>
+
+    <!-- Student Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th style="width: 60px;">ID</th>
+                    <th>Student Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th style="width: 80px;">CGPA</th>
+                    <th>Company</th>
+                    <th>Job Role</th>
+                    <th style="width: 100px;">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.StudentRecords)
+                {
+                    <tr>
+                        <td class="text-center text-muted">@student.StudentID</td>
+                        <td class="fw-semibold">@student.StudentName</td>
+                        <td>@student.Email</td>
+                        <td>@student.Department</td>
+                        <td>@student.CGPA.ToString("0.00")</td>
+                        <td>@(student.CompanyName ?? "-")</td>
+                        <td>@(student.JobRole ?? "-")</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(student.CompanyName))
+                            {
+                                <span class="badge bg-success">Placed</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Not Placed</span>
+                            }
+                        </td>
+                    </tr>
+                }
+
+                @if (!Model.StudentRecords.Any())
+                {
+                    <tr>
+                        <td colspan="8" class="text-center text-muted py-4">
+                            No student records found matching the search criteria.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Company Details Card -->
+<div class="content-card">
+    <div class="content-card-title">
+        Participating Companies
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th style="width: 100px;">Company ID</th>
+                    <th>Company Name</th>
+                    <th>Job Role</th>
+                    <th>Package (₹ Per Annum)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var comp in Model.CompanyRecords)
+                {
+                    <tr>
+                        <td class="text-center text-muted">@comp.CompanyID</td>
+                        <td class="fw-semibold text-primary">@comp.CompanyName</td>
+                        <td>@comp.JobRole</td>
+                        <td>₹@comp.Package.ToString("N0")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
